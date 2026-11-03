@@ -3,7 +3,6 @@ name: Deploy HK portfolio Website to Firebase Hosting
 on:
   push:
     branches:
-      - main
       - master
 
 permissions:
