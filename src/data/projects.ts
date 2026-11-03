@@ -1,6 +1,6 @@
 export type ProjectStatus = 'Completed' | 'In Progress'
 
-export type DiagramKind = 'auto-healing' | 'devsecops' | 'eks-gitops'
+export type DiagramKind = 'auto-healing' | 'devsecops' | 'eks-gitops' | 'static-s3'
 
 export interface Project {
   id: string
@@ -14,6 +14,8 @@ export interface Project {
   highlights: string[]
   diagram: DiagramKind
   diagramLabel: string
+  repositoryUrl?: string
+  liveDemo?: string
   note?: string
 }
 
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     diagram: 'auto-healing',
     diagramLabel:
       'Architecture: users reach an Internet Gateway, then an Application Load Balancer, which forwards traffic to a target group. Two EC2 instances in separate Availability Zones run containers behind an Auto Scaling Group. CloudWatch monitors the environment.',
+    repositoryUrl: 'https://github.com/Harikrishna2525/HA-Infra',
   },
   {
     id: 'devsecops-cicd',
@@ -83,6 +86,7 @@ export const projects: Project[] = [
     diagram: 'devsecops',
     diagramLabel:
       'Architecture: a GitHub repository triggers a GitHub Actions workflow containing CodeQL, Gitleaks, Checkov and Trivy scan stages, followed by Docker build, push to GHCR and deployment. The workflow also authenticates to AWS through IAM OIDC.',
+    repositoryUrl: 'https://github.com/Harikrishna2525/Docker-nextjs-app',
     note:
       'Security scanners are configured as pipeline stages. They are not all wired as blocking deployment gates, so findings should be treated as reported results rather than a universal pass/fail barrier.',
   },
@@ -122,5 +126,32 @@ export const projects: Project[] = [
       'Target architecture: a GitHub repository triggers GitHub Actions, which builds and pushes an image to GHCR. Amazon EKS pulls the image into Kubernetes Deployments, ReplicaSets and Pods exposed by a Service. Argo CD watches the Git repository and reconciles the deployment configuration.',
     note:
       'Status is In Progress. The EKS cluster, node groups and application deployment have not yet been fully implemented and tested, so this architecture is presented as work in progress — not completed evidence.',
+  },
+  {
+    id: 'static-portfolio-s3-cloudfront',
+    index: '04',
+    title: 'Static Portfolio Hosting using Amazon S3, CloudFront CDN and Origin Access Control (OAC)',
+    shortTitle: 'Static Portfolio on S3 + CloudFront',
+    status: 'Completed',
+    description:
+      'Designed and deployed a static website hosting architecture using Amazon S3 and Amazon CloudFront. The website\'s static assets are stored in a private S3 bucket and delivered globally through CloudFront CDN. CloudFront uses Origin Access Control (OAC) to securely access the private S3 origin without exposing the bucket publicly.',
+    technologies: [
+      'Amazon S3',
+      'Amazon CloudFront',
+      'Origin Access Control (OAC)',
+      'AWS IAM / S3 Bucket Policy',
+    ],
+    highlightsLabel: 'Implementation highlights',
+    highlights: [
+      'Static website files hosted in Amazon S3.',
+      'CloudFront distribution configured as the content delivery layer.',
+      'Origin Access Control configured for secure S3 origin access.',
+      'Private S3 bucket with restricted bucket policy.',
+      'Global content delivery through CloudFront.',
+    ],
+    diagram: 'static-s3',
+    diagramLabel:
+      'Architecture: users reach the website through a CloudFront CDN distribution, which uses Origin Access Control to securely retrieve content from a private S3 bucket. The bucket blocks direct public access and serves the static website files.',
+    liveDemo: 'https://d12yl5e9vju8ew.cloudfront.net/index.html',
   },
 ]

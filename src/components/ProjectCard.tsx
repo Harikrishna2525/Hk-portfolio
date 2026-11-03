@@ -1,14 +1,16 @@
-import { Check, CircleDot, Info } from 'lucide-react'
+import { Check, CircleDot, ExternalLink, Info } from 'lucide-react'
 import type { Project } from '../data/projects'
 import { ProjectOneDiagram } from './diagrams/ProjectOneDiagram'
 import { ProjectThreeDiagram } from './diagrams/ProjectThreeDiagram'
 import { ProjectTwoDiagram } from './diagrams/ProjectTwoDiagram'
+import { ProjectFourDiagram } from './diagrams/ProjectFourDiagram'
 import { StatusBadge } from './StatusBadge'
 
 const diagramMeta = {
   'auto-healing': { file: 'aws-auto-healing.tf', label: 'as built' },
   devsecops: { file: 'secure-pipeline.yml', label: 'as built' },
   'eks-gitops': { file: 'eks-gitops.yaml', label: 'target architecture' },
+  'static-s3': { file: 's3-static-website.tf', label: 'as built' },
 } as const
 
 function ProjectDiagram({ project }: { project: Project }) {
@@ -32,6 +34,7 @@ function ProjectDiagram({ project }: { project: Project }) {
         {project.diagram === 'auto-healing' ? <ProjectOneDiagram /> : null}
         {project.diagram === 'devsecops' ? <ProjectTwoDiagram /> : null}
         {project.diagram === 'eks-gitops' ? <ProjectThreeDiagram /> : null}
+        {project.diagram === 'static-s3' ? <ProjectFourDiagram /> : null}
       </div>
 
       <div className="flex items-center justify-between gap-3 border-t border-white/[0.06] px-3 py-2">
@@ -93,6 +96,29 @@ export function ProjectCard({
             <p className="mt-4 text-[13px] leading-[1.75] text-muted sm:text-sm">
               {project.description}
             </p>
+
+            {project.repositoryUrl ? (
+              <a
+                href={project.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.14em] text-signal transition-colors duration-300 hover:text-ice"
+              >
+                <ExternalLink className="size-3" aria-hidden="true" />
+                Source repository
+              </a>
+            ) : null}
+
+            {project.liveDemo ? (
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary mt-4 w-full sm:w-auto"
+              >
+                View Live Portfolio
+              </a>
+            ) : null}
 
             <div className="mt-5">
               <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-faint">
