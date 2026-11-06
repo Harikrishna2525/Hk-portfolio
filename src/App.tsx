@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { AiDevOps } from './components/AiDevOps'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
@@ -26,6 +27,7 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <AiDevOps />
         <Projects />
         <SecretsManagement />
         <Contact />
