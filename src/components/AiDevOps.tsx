@@ -54,7 +54,7 @@ const workflowSteps: WorkflowStep[] = [
     icon: 'terminal',
   },
   {
-    title: 'OpenCode AI Agent',
+    title: 'Claude Code AI Agent',
     meta: 'engineering assistance',
     icon: 'agent',
     tag: 'AI',
@@ -216,7 +216,7 @@ export function AiDevOps() {
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="font-display text-xl font-semibold tracking-tight text-ice">
-                        OpenCode
+                        Claude Code
                       </h3>
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-signal/15 bg-signal/[0.04] px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-signal/80">
                         <span className="size-1 rounded-full bg-signal" aria-hidden="true" />
@@ -230,7 +230,7 @@ export function AiDevOps() {
                 </div>
 
                 <p className="mt-4 text-[13px] leading-[1.75] text-muted sm:text-sm">
-                  OpenCode is a terminal-based AI coding agent that assists with infrastructure
+                  Claude Code is a terminal-based AI coding agent that assists with infrastructure
                   analysis, configuration generation, troubleshooting and operational
                   documentation. It supports my DevOps workflow — it does not build, deploy or
                   manage production infrastructure autonomously.
@@ -260,7 +260,7 @@ export function AiDevOps() {
                     <span className="size-1.5 rounded-full bg-[#26364c]" />
                   </div>
                   <span className="truncate font-mono text-[8px] tracking-wide text-faint">
-                    opencode · terminal
+                    claude code · terminal
                   </span>
                   <span className="shrink-0 font-mono text-[7px] uppercase tracking-[0.14em] text-signal/80">
                     assist
@@ -269,7 +269,7 @@ export function AiDevOps() {
 
                 <div className="space-y-1.5 p-4 font-mono text-[10px] leading-relaxed">
                   <p className="text-slate-300">
-                    <span className="text-signal">$</span> opencode
+                    <span className="text-signal">$</span> claude
                   </p>
                   <p className="truncate text-slate-400">
                     <span className="text-signal/60">›</span> analyse terraform plan
@@ -336,7 +336,7 @@ export function AiDevOps() {
                 <Info className="mt-0.5 size-3.5 shrink-0 text-signal/70" aria-hidden="true" />
                 <p className="text-[11px] leading-relaxed text-slate-400">
                   <span className="font-medium text-slate-300">Human-in-the-loop: </span>
-                  OpenCode assists with implementation. I review, validate and execute the final
+                  Claude Code assists with implementation. I review, validate and execute the final
                   changes before anything is committed, merged or applied to an environment.
                 </p>
               </div>
