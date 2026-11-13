@@ -13,7 +13,7 @@ export const site = {
     linkedin: 'https://www.linkedin.com/in/hari-krish-13300b27a/',
     github: 'https://github.com/Harikrishna2525',
     resume:
-      'https://drive.google.com/file/d/1K4d8MkZDP8mwvcyzUc0WBTKrtOPltsUT/view?usp=sharing',
+      'https://drive.google.com/file/d/1Pt9gq4BkGf5mDRSoU_yd4XaGz2m_J2c4/view?usp=sharing',
   },
   stack: [
     'AWS',
